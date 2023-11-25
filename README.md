@@ -291,3 +291,4 @@ GROUP BY
     Facturi.DataFactura
 LIMIT 0, 1000;
 ```
+
