@@ -199,27 +199,23 @@ delete from Produse where ProdusId = 514;
 
  **DQL instructions**
  
-* 
+* Selection of clients and their emails from Bucharest.
 ``` sql
 SELECT NumeClient, Email
 FROM Clienti
 WHERE Oras="Bucuresti";
 ```
-*
+* Selection of invoice code and invoice date according to customer code.
 ``` sql
 SELECT FacturaID, DataFactura
 FROM Facturi
 WHERE ClientID = 2112;
 ```
-*
-``` sql
-SELECT * FROM Angajati ORDER BY Salariu desc limit 4;
-```
 * Check if products were added successfully
 ``` sql
 select ProdusID, NumeProdus, Pret from Produse;
 ```
-*
+* Selecting employees who have a bonus greater than 100 and a salary less than 2500 or a bonus less than 150 and a salary less than 2500.
 ``` sql
 SELECT*
 FROM Angajati
@@ -249,7 +245,7 @@ FROM Facturi
 INNER JOIN Comenzi ON Facturi.ComandaID = Comenzi.ComandaID
 WHERE MONTH(Facturi.DataFactura) = MONTH(current_date());
 ```
-*
+* Display duplicates from the employees table.
 ``` sql
 SELECT AngajatID, NumeAngajat
 FROM Angajati
@@ -261,7 +257,7 @@ WHERE AngajatID IN (
 )
 ORDER BY AngajatID;
 ```
-*
+* Select the products that have the number of pieces between 15 and 30.
 ``` sql
 SELECT NumeProdus,ProdusID
 FROM Produse
