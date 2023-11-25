@@ -21,43 +21,56 @@ create database Kaufland;
 use Kaufland;
 );
 ```
-* Create table 
+* Create table Angajati
 ``` sql
-create table Angajati (
-    AngajatID int primary key,
-    Nume varchar(255),
-    Salariu decimal(10, 2),
-    BonusPerformanta decimal(10, 2)
+create table Angajati(
+	AngajatID int primary key,
+	NumeAngajat varchar(255),
+	Salariu decimal(10,2),
+	BonusPerformanta decimal (10,2)
 );
 ```
-* Create table 
+* Create table Clienti
 ``` sql
-create table Clienti (
-    ClientID int primary key,
-    Nume varchar(255),
-    Email varchar(255)
-    );
+create table Clienti(
+	ClientID int primary key,
+	NumeClient varchar(255),
+	Email varchar(255)
+);
 ```
-* Create table 
+* Create table Produse
 ``` sql
 create table Produse (
-    ProdusID int primary key,
+    ProdusID int auto_increment primary key,
     NumeProdus varchar(255),
-    Pret decimal(10, 2)
+    Pret decimal(10, 2),
+    Bucati int
 );
 ```
-* Create table 
+* Create table Comenzi
 ``` sql
-create table Comenzi (
-    ComandaID int primary key,
-    ClientID int,
-    ProdusID int,
-    Cantitate int,
-    DataComenzii date,
-    foreign key (ClientID) references Clienti(ClientID),
-    foreign key (ProdusID) references Produse(ProdusID)
+create table Comenzi(
+	ComandaID int primary key,
+	ClientID int,
+	ProdusID int,
+	Cantitate int,
+	DataComenzii date,
+	foreign key (ClientID) references Clienti(ClientID),
+	foreign key (ProdusID) references Produse(ProdusID)
 );
 ```
+* Create table Facturi
+``` sql
+create table Facturi(
+	FacturaID int primary key,
+	ComandaID int,
+	DataFactura date,
+	ClientID int,
+	foreign key (ComandaID) references Comenzi(ComandaID),
+	foreign key (ClientID) references Clienti(ClientID)
+);
+```
+
 **DML instructions**
 * Insert 6 products
   ``` sql
