@@ -188,10 +188,26 @@ insert into Facturi(FacturaID,ComandaID,DataFactura,ClientID) values
 	(909,809,'2023-11-06',2111),
 	(910,810,'2023-11-12',2112);
 ```
-* Update Angajati - Updating the performance bonus for a specific employee
-    ``` sql
-    update Angajati set BonusPerformanta = 300.0 where AngajatID = 1;
-    ```
+*
+``` sql
+SELECT NumeClient, Email
+FROM Clienti
+WHERE Oras="Bucuresti";
+```
+*
+``` sql
+SELECT FacturaID, DataFactura
+FROM Facturi
+WHERE ClientID = 2112;
+```
+*
+``` sql
+UPDATE Angajati set NumeAngajat = "Soare Ana" where NumeAngajat = "Soare Mihai";
+```
+*
+``` sql
+SELECT * FROM Angajati ORDER BY Salariu desc limit 4;
+```
 
 * Delete Produse - Deleting a product
     ``` sql
@@ -211,20 +227,21 @@ insert into Facturi(FacturaID,ComandaID,DataFactura,ClientID) values
     select * from Produse where NumeProdus like '%Laptop%' ;
     ```
 *
-    ``` sql
-    select *
-    from Angajati
-    where (BonusPerformanta > 100.0 and Salariu < 700)
-       or (BonusPerformanta < 150.0 and Salariu > 800);
-    ```
+``` sql
+SELECT*
+FROM Angajati
+WHERE(BonusPerformanta>100.00 and Salariu<2500)
+OR (BonusPerformanta<150.00 and Salariu <2500);
+```
 * Calculation of the average salary of employees
-    ``` sql
-    select avg(Salariu) from Angajati;
-    ```
+``` sql
+SELECT AVG(Salariu)
+FROM Angajati;
+```  
 * Selection of the first 10 employees ordered by decreasing salary.
-    ``` sql
-    select * from Angajati order by Salariu desc limit 4;
-    ```
+``` sql
+SELECT * FROM Angajati ORDER BY Salariu desc limit 10;
+```
  
 
   
