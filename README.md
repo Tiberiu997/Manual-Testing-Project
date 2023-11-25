@@ -14,6 +14,7 @@ ____
 
 In this section will be describe how SQL testing was performed.
 
+**DDL instructions**
 * Database creation
 ```sql
 create database Kaufland;
@@ -69,15 +70,25 @@ create table Comenzi (
       (5, "Carne de porc", 70.00),
       (6, "Paine", 10.00);
   ```
-* Update Angajati
+* Update Angajati - Updating the performance bonus for a specific employee
     ``` sql
     update Angajati set BonusPerformanta = 300.0 where AngajatID = 1;
     ```
 
-* Delete Produse
+* Delete Produse - Deleting a product
     ``` sql
     delete from Produse where ProdusId = 4;
     ```
- 
+ **DQL instructions**
+* Check if products were added successfully
+    ``` sql
+    select ProdusID, NumeProdus, Pret from Produse;
+    ```
+* Selecting employees who have a bonus greater than $100.
+    ``` sql
+    select * from Angajati where BonusPerformanta > 100.0;
+    ```
+        
+    
 
   
