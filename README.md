@@ -1,4 +1,4 @@
-# Manual-Testing-Project
+# Manual-Testing-Project 
 
 The scope of the final project for ITF Manual Testing Course is to use all gained knowledge throught the course and apply them in practice, using a store database.
 
@@ -6,14 +6,10 @@ Database under test named Kaufland.
 
 Tools used: MySQL Workbench.
 
-**Reverse Engineer**
-
-![reverse engineer](https://github.com/Tiberiu997/Manual-Testing-Project/assets/151975228/75d37eba-bddb-4d99-9f35-a95e1d6f3cac)
-
 
 ____
 
-**SQL section**
+# SQL section
 
 In this section will be describe how SQL testing was performed.
 
@@ -295,3 +291,8 @@ GROUP BY
 LIMIT 0, 1000;
 ```
 
+____
+
+**Reverse Engineer**
+
+![reverse engineer](https://github.com/Tiberiu997/Manual-Testing-Project/assets/151975228/75d37eba-bddb-4d99-9f35-a95e1d6f3cac)
