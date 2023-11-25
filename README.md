@@ -269,7 +269,7 @@ SELECT Sum(BonusPerformanta)
 FROM Angajati
 WHERE Angajati.Salariu>2500;
 ```
-* The performance bonus number of employees whose salary is greater than 2500.
+* The number of employees with a 100 bonus and a salary grater than 2500.
 ``` sql
 SELECT
     count(Angajati.BonusPerformanta = 100 ) AS Total_Bonus
