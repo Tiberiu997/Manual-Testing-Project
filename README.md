@@ -6,7 +6,10 @@ Database under test named Kaufland.
 
 Tools used: MySQL Workbench.
 
-**Functional specifications**
+**Reverse Engineer**
+
+![reverse engineer](https://github.com/Tiberiu997/Manual-Testing-Project/assets/151975228/75d37eba-bddb-4d99-9f35-a95e1d6f3cac)
+
 
 ____
 
