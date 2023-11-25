@@ -38,6 +38,10 @@ create table Clienti(
 	Email varchar(255)
 );
 ```
+* I used alter table to add a new column.
+``` sql
+alter table Clienti add column Oras varchar(50);
+```
 * Create table Produse
 ``` sql
 create table Produse (
@@ -92,10 +96,6 @@ insert into Angajati(AngajatID,NumeAngajat,Salariu,BonusPerformanta) values
 	(114,"Chiriac Corina",2000,100.00),
 	(115,"Andrei Iosif",3000,200.00);
   ```
-* I used alter table to add a new column.
-``` sql
-alter table Clienti add column Oras varchar(50);
-```
 * Insert Clienti
 ``` sql
 insert into Clienti(ClientID,NumeClient,Email,Oras) values
@@ -130,7 +130,7 @@ insert into Clienti(ClientID,NumeClient,Email,Oras) values
 	(2129,"Ivan Maria","ivan.maria@yahoo.com","Ploiesti"),
 	(2130,"Pana Valentin","pana.valentin@yahoo.com","Ploiesti");
 ```
-*Insert Produse
+* Insert Produse
 ``` sql
 insert into Produse(ProdusID,NumeProdus,Pret,Bucati) values
 	(510,"Servetele umede",9.00,25),
@@ -190,6 +190,17 @@ insert into Facturi(FacturaID,ComandaID,DataFactura,ClientID) values
 ```
 *
 ``` sql
+UPDATE Angajati set NumeAngajat = "Soare Ana" where NumeAngajat = "Soare Mihai";
+```
+*  Delete Produse - Deleting a product
+``` sql
+delete from Produse where ProdusId = 514;
+```
+
+ **DQL instructions**
+ 
+* 
+``` sql
 SELECT NumeClient, Email
 FROM Clienti
 WHERE Oras="Bucuresti";
@@ -202,30 +213,12 @@ WHERE ClientID = 2112;
 ```
 *
 ``` sql
-UPDATE Angajati set NumeAngajat = "Soare Ana" where NumeAngajat = "Soare Mihai";
-```
-*
-``` sql
 SELECT * FROM Angajati ORDER BY Salariu desc limit 4;
 ```
-
-* Delete Produse - Deleting a product
-    ``` sql
-    delete from Produse where ProdusId = 4;
-    ```
- **DQL instructions**
 * Check if products were added successfully
-    ``` sql
-    select ProdusID, NumeProdus, Pret from Produse;
-    ```
-* Selecting employees who have a bonus greater than $100.
-    ``` sql
-    select * from Angajati where BonusPerformanta > 100.0;
-    ```
-*
-    ``` sql
-    select * from Produse where NumeProdus like '%Laptop%' ;
-    ```
+``` sql
+select ProdusID, NumeProdus, Pret from Produse;
+```
 *
 ``` sql
 SELECT*
@@ -242,6 +235,63 @@ FROM Angajati;
 ``` sql
 SELECT * FROM Angajati ORDER BY Salariu desc limit 10;
 ```
- 
-
-  
+*
+``` sql
+SELECT Clienti.NumeClient,Clienti.ClientID, Comenzi.ComandaID, Facturi.FacturaID
+FROM Clienti INNER JOIN (Comenzi INNER JOIN Facturi ON Comenzi.ComandaID=Facturi.ComandaID) ON Clienti.ClientID=Facturi.ClientID
+WHERE Clienti.Oras="Bucuresti" AND
+Comenzi.Cantitate<3;
+```
+*
+``` sql
+SELECT Facturi.FacturaID, Comenzi.ComandaID
+FROM Facturi
+INNER JOIN Comenzi ON Facturi.ComandaID = Comenzi.ComandaID
+WHERE MONTH(Facturi.DataFactura) = MONTH(current_date());
+```
+*
+``` sql
+SELECT AngajatID, NumeAngajat
+FROM Angajati
+WHERE AngajatID IN (
+    SELECT AngajatID
+    FROM Angajati AS TMP
+    GROUP BY AngajatID
+    HAVING COUNT(*) > 1
+)
+ORDER BY AngajatID;
+```
+*
+``` sql
+SELECT NumeProdus,ProdusID
+FROM Produse
+WHERE Bucati BETWEEN 15 and 30;
+```
+*
+``` sql
+SELECT Sum(BonusPerformanta)
+FROM Angajati
+WHERE Angajati.Salariu>2500;
+```
+*
+``` sql
+SELECT
+    count(Angajati.BonusPerformanta = 100 ) AS Total_Bonus
+FROM
+    Angajati
+WHERE  
+    Angajati.Salariu > 2500;
+```
+*
+``` sql
+SELECT
+    Facturi.DataFactura,
+    COUNT(Comenzi.DataComenzii) AS TotalCount
+FROM
+    Clienti
+INNER JOIN Comenzi ON Clienti.ClientID = Comenzi.ClientID
+INNER JOIN Facturi ON Comenzi.ComandaID = Facturi.ComandaID
+GROUP BY
+    Facturi.DataFactura
+LIMIT 0, 1000;
+```
