@@ -57,5 +57,14 @@ create table Comenzi (
     foreign key (ProdusID) references Produse(ProdusID)
 );
 ```
-
-
+* Insert 6 products
+  ``` sql
+  insert into Produse (ProdusID, NumeProdus, Pret)
+  values 
+      (1, "Laptop", 900.00),
+      (2, "Telefon", 700.00),
+      (3, "Tricou", 200.00),
+      (4, "Blugi", 250.00),
+      (5, "Carne de porc", 70.00),
+      (6, "Paine", 10.00);
+```
