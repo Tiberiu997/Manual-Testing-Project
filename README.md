@@ -88,6 +88,22 @@ create table Comenzi (
     ``` sql
     select * from Angajati where BonusPerformanta > 100.0;
     ```
-  
+*
+    ``` sql
+    select * from Produse where NumeProdus like '%Laptop%' ;
+    ```
+*
+    ``` sql
+    select * from Angajati where (BonusPerformanta > 100.0 and Salariu < 700 ) or (BonusPerformanta < 150.0 and Salariu > 800);
+    ```
+* Calculation of the average salary of employees
+    ``` sql
+    select avg(Salariu) from Angajati;
+    ```
+* Selection of the first 10 employees ordered by decreasing salary.
+    ``` sql
+    select * from Angajati order by Salariu desc limit 10;
+    ```
+    
 
   
