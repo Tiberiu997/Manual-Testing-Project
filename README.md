@@ -77,7 +77,7 @@ create table Facturi(
 
 **DML instructions**
 
-* Insert 15 Angajati
+* Insert Angajati
 ``` sql
 insert into Angajati(AngajatID,NumeAngajat,Salariu,BonusPerformanta) values
 	(101,"Beniasu Andrei",1000,100.00),
@@ -188,11 +188,11 @@ insert into Facturi(FacturaID,ComandaID,DataFactura,ClientID) values
 	(909,809,'2023-11-06',2111),
 	(910,810,'2023-11-12',2112);
 ```
-*
+* Changing the name of an employee.
 ``` sql
 UPDATE Angajati set NumeAngajat = "Soare Ana" where NumeAngajat = "Soare Mihai";
 ```
-*  Delete Produse - Deleting a product
+*  Delete Produse - Deleting a product.
 ``` sql
 delete from Produse where ProdusId = 514;
 ```
@@ -211,7 +211,7 @@ SELECT FacturaID, DataFactura
 FROM Facturi
 WHERE ClientID = 2112;
 ```
-* Check if products were added successfully
+* Check if products were added successfully.
 ``` sql
 select ProdusID, NumeProdus, Pret from Produse;
 ```
@@ -222,7 +222,7 @@ FROM Angajati
 WHERE(BonusPerformanta>100.00 and Salariu<2500)
 OR (BonusPerformanta<150.00 and Salariu <2500);
 ```
-* Calculation of the average salary of employees
+* Calculation of the average salary of employees.
 ``` sql
 SELECT AVG(Salariu)
 FROM Angajati;
@@ -231,14 +231,14 @@ FROM Angajati;
 ``` sql
 SELECT * FROM Angajati ORDER BY Salariu desc limit 10;
 ```
-*
+* Displays the selected data for customers from Bucharest who ordered a quantity of less than 3 products.
 ``` sql
 SELECT Clienti.NumeClient,Clienti.ClientID, Comenzi.ComandaID, Facturi.FacturaID
 FROM Clienti INNER JOIN (Comenzi INNER JOIN Facturi ON Comenzi.ComandaID=Facturi.ComandaID) ON Clienti.ClientID=Facturi.ClientID
 WHERE Clienti.Oras="Bucuresti" AND
 Comenzi.Cantitate<3;
 ```
-*
+* Displays the invoices and orders from the current month.
 ``` sql
 SELECT Facturi.FacturaID, Comenzi.ComandaID
 FROM Facturi
@@ -263,13 +263,13 @@ SELECT NumeProdus,ProdusID
 FROM Produse
 WHERE Bucati BETWEEN 15 and 30;
 ```
-*
+* Displays the amount of the performance bonus of employees whose salary is higher than 2500.
 ``` sql
 SELECT Sum(BonusPerformanta)
 FROM Angajati
 WHERE Angajati.Salariu>2500;
 ```
-*
+* The performance bonus number of employees whose salary is greater than 2500.
 ``` sql
 SELECT
     count(Angajati.BonusPerformanta = 100 ) AS Total_Bonus
@@ -278,7 +278,7 @@ FROM
 WHERE  
     Angajati.Salariu > 2500;
 ```
-*
+* Displays the number of invoices per day.
 ``` sql
 SELECT
     Facturi.DataFactura,
