@@ -94,7 +94,10 @@ create table Comenzi (
     ```
 *
     ``` sql
-    select * from Angajati where (BonusPerformanta > 100.0 and Salariu < 700 ) or (BonusPerformanta < 150.0 and Salariu > 800);
+    select *
+    from Angajati
+    where (BonusPerformanta > 100.0 and Salariu < 700)
+       or (BonusPerformanta < 150.0 and Salariu > 800);
     ```
 * Calculation of the average salary of employees
     ``` sql
@@ -104,6 +107,6 @@ create table Comenzi (
     ``` sql
     select * from Angajati order by Salariu desc limit 10;
     ```
-    
+ 
 
   
