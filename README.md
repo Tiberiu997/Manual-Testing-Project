@@ -88,7 +88,6 @@ create table Comenzi (
     ``` sql
     select * from Angajati where BonusPerformanta > 100.0;
     ```
-        
-    
+  
 
   
