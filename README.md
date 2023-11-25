@@ -78,6 +78,6 @@ create table Comenzi (
     ``` sql
     delete from Produse where ProdusId = 4;
     ```
-    
+ 
 
   
