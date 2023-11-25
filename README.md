@@ -105,7 +105,7 @@ create table Comenzi (
     ```
 * Selection of the first 10 employees ordered by decreasing salary.
     ``` sql
-    select * from Angajati order by Salariu desc limit 10;
+    select * from Angajati order by Salariu desc limit 4;
     ```
  
 
