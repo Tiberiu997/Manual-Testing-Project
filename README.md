@@ -57,6 +57,7 @@ create table Comenzi (
     foreign key (ProdusID) references Produse(ProdusID)
 );
 ```
+**DML instructions**
 * Insert 6 products
   ``` sql
   insert into Produse (ProdusID, NumeProdus, Pret)
@@ -67,4 +68,16 @@ create table Comenzi (
       (4, "Blugi", 250.00),
       (5, "Carne de porc", 70.00),
       (6, "Paine", 10.00);
-```
+  ```
+* Update Angajati
+    ``` sql
+    update Angajati set BonusPerformanta = 300.0 where AngajatID = 1;
+    ```
+
+* Delete Produse
+    ``` sql
+    delete from Produse where ProdusId = 4;
+    ```
+    
+
+  
