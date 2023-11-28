@@ -296,3 +296,14 @@ ____
 **Reverse Engineer**
 
 ![reverse engineer](https://github.com/Tiberiu997/Manual-Testing-Project/assets/151975228/75d37eba-bddb-4d99-9f35-a95e1d6f3cac)
+
+* The "Comenzi" table has two foreign keys that make
+reference to the primary keys of the "Clienti" and "Produse" tables.
+
+The "Facturi" table has two foreign keys that make
+reference to the primary keys of the "Comenzi" and "Clienti" tables.
+
+These relationships between tables allow associations between information
+from different tables.
+For example, in the "Comenzi" table, you can identify the order made
+by a certain customer and the ordered product.
